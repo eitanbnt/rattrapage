@@ -6,41 +6,56 @@ export default function App() {
   const [nbSaisi, setNbSaisi] = useState('');
 
   const max = 11;
-  const random = Math.floor(Math.random()*max);
-  console.log(random);
+  const random = Math.floor(Math.random() * max);
+  //console.log(random);
   const [nb, setNb] = useState(random);
   const [count, setCount] = useState(0);
-  console.log(count);
+  const [res, setRes] = useState('');
+  //console.log(count);
 
-  //setCount(0);
+  const Comparator = () => {
+    if (nb == nbSaisi) {
+      setCount(0);
+      setRes('Ok');
+    } else {
+      setCount(count + 1)
+      if (nb < nbSaisi) {
+        setRes(`C'est moins`);
+      }else{
+        setRes(`C'est plus`);
+      }
+    }
+  }
+
+  setTimeOut(() =>{
+    Alert.alert('Test');
+  }, 5000);
 
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.titre}>Rattrapage</Text>
-        </View>
+      </View>
       <View>
         <Text>Tentatives</Text>
-        <Text 
-        defaultValue={count}/>
+        <Text>{count}</Text>
       </View>
       <View>
-      <TextInput
-        style={{height: 40}}
-        placeholder="Rentrer un nombre"
-        onChangeText={newNbSaisi => setNbSaisi(newNbSaisi)}
-        defaultValue={nbSaisi}
-      />
+        <TextInput
+          style={{ height: 40 }}
+          placeholder="Rentrer un nombre"
+          onChangeText={newNbSaisi => setNbSaisi(newNbSaisi)}
+          defaultValue={nbSaisi}
+        />
       </View>
       <View>
-      <Button
-        title="Confirmer"
-        onPress={() => setCount(count + 1)}
-      />
+        <Button
+          title="Confirmer"
+          onPress={() => Comparator()}
+        />
       </View>
       <View>
-        <Text>C'est plus</Text>
-        <Text>C'est moins</Text>
+        <Text>{res}</Text>
       </View>
 
 
