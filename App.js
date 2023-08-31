@@ -17,6 +17,7 @@ export default function App() {
     if (nb == nbSaisi) {
       setCount(0);
       setRes('Ok');
+      setNb(random);
     } else {
       setCount(count + 1)
       if (nb < nbSaisi) {
@@ -27,9 +28,9 @@ export default function App() {
     }
   }
 
-  setTimeOut(() =>{
-    Alert.alert('Test');
-  }, 5000);
+  // setTimeOut(() =>{
+  //   Alert.alert('Test');
+  // }, 5000);
 
   return (
     <View style={styles.container}>
