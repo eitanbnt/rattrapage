@@ -34,14 +34,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.background}>
         <Text style={styles.titre}>Rattrapage</Text>
       </View>
-      <View>
+      <View style={styles.background}>
         <Text>Tentatives</Text>
         <Text>{count}</Text>
       </View>
-      <View>
+      <View  style={styles.background}>
         <TextInput
           style={{ height: 40 }}
           placeholder="Rentrer un nombre"
@@ -55,7 +55,7 @@ export default function App() {
           onPress={() => Comparator()}
         />
       </View>
-      <View>
+      <View style={styles.background}>
         <Text>{res}</Text>
       </View>
 
@@ -74,5 +74,10 @@ const styles = StyleSheet.create({
   },
   titre: {
     fontSize: 30,
+  },
+  background: {
+    borderWidth: 2,
+    width: 300,
+    alignItems: "center",
   },
 });
